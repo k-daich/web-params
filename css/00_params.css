@@ -1,0 +1,27 @@
+header {
+    width: 100vw;
+    height: 10vh;
+    background-color: yellowgreen;
+    display: block;
+}
+
+nav {
+    width: 20vw;
+    height: 85vh;
+    background-color: red;
+    display: block;
+}
+
+main {
+    width: 80vw;
+    height: 85vh;
+    background-color: blue;
+    display: block;
+}
+
+footer {
+    width: 100vw;
+    height: 5vh;
+    background-color: yellow;
+    display: block;
+}
