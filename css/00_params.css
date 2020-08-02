@@ -50,3 +50,9 @@ footer {
     display: block;
     clear: both;
 }
+
+#rader-chart {
+    width :400px;
+    height: 500px;
+
+}
