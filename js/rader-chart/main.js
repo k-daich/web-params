@@ -8,16 +8,16 @@ window.onload = function () {
 function chartbuild() {
 
     //チャートの基本変数定義
-    var center_x = 200;          //中心x座標
-    var center_y = 200;          //中心y座標
-    var vertex_num = 5;              //頂点の数
-    var chart_radius = 200;              //大きさ（外接円の半径）
+    var center_x = 100;          //中心x座標
+    var center_y = 100;          //中心y座標
+    var vertex_num = 6;              //頂点の数
+    var chart_radius = 100;              //大きさ（外接円の半径）
     var tilt = 180;               //傾き（０だと１つ目の頂点が真下にくる）
     var scale_num = 5;               //目盛の数
     var line_color = "#a9a9a9";  //チャートのライン色
-    var line_width = 3;          //チャートのラインの太さ
-    var line_width_out = 8;      //チャートのラインの太さ（一番外側）
-    var line_width_center = 2;   //チャートの中心線の太さ
+    var line_width = 2;          //チャートのラインの太さ
+    var line_width_out = 4;      //チャートのラインの太さ（一番外側）
+    var line_width_center = 1.5;   //チャートの中心線の太さ
 
     var canvas = document.getElementById('rader-chart');
     if (canvas.getContext) {
@@ -37,7 +37,7 @@ function chartbuild() {
         }
 
         /**
-         * 
+         * チャートの枠線を作成する
          */
         function makechartframe() {
             var x;
@@ -49,17 +49,17 @@ function chartbuild() {
             context.strokeStyle = line_color;
             // 目盛の数分だけ繰り返す
             for (var k = scale_num; k >= 0; k--) {
-                // 1目盛の幅を求める（チャートの半径/目盛の数）
-                one_scale_length = chart_radius / scale_num * k;
+                // 中央からの目盛の長さを求める（チャートの半径/目盛の数）
+                nth_scale_length = chart_radius / scale_num * k;
                 // 描画する位置をリセットする
                 context.beginPath();
                 // 一番外枠の目盛の場合
                 if (k == scale_num) {
-                    context.lineWidth = 5;  //ラインの太さ
+                    context.lineWidth = line_width_out;  //ラインの太さ
                 }
                 // それ以外の目盛の場合
                 else {
-                    context.lineWidth = 2;  //ラインの太さ
+                    context.lineWidth = line_width;  //ラインの太さ
                 }
 
                 // チャートの頂点の数だけ繰り返す
@@ -71,9 +71,10 @@ function chartbuild() {
                     rad = angle * Math.PI / 180;
 
                     // 1目盛目のX座標を求める
-                    x = center_x + Math.sin(rad) * one_scale_length;
+                    x = getXposiOnCircle(center_x, rad, nth_scale_length);
+                    // x = center_x + Math.sin(rad) * nth_scale_length;
                     // 1目盛目のY座標を求める
-                    y = center_y + Math.cos(rad) * one_scale_length;
+                    y = center_y + Math.cos(rad) * nth_scale_length;
 
                     // 初回の繰り返しのみ描画開始位置を初期化する
                     if (l == 1) {
@@ -119,4 +120,15 @@ function chartbuild() {
             }
         }
     }
+
+    /**
+         * 指定したX座標を中央として、指定した半径の円を引き、指定した角度の円上のX座標を返す
+         * @param {*} centerX 円の中央X座標
+         * @param {*} radius 円からの角度
+         * @param {*} nthScaleLength 円の半径 
+         */
+        function getXposiOnCircle(centerX, radius, nthScaleLength) {
+            return centerX + Math.sin(radius) * nthScaleLength;
+        }
+        
 }
