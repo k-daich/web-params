@@ -24,9 +24,10 @@ function chartbuild() {
     var tilt = 180;               //傾き（０だと１つ目の頂点が真下にくる）
     var scale_num = 5;               //目盛の数
     var line_color = "#a9a9a9";  //チャートのライン色
-    var params_line_color = "#ffc9da";  //パラメータのチャートのライン色
+    var params_line_color = "#c8798a";  //パラメータのチャートのライン色
     var line_width = 2;          //チャートのラインの太さ
     var line_width_out = 4;      //チャートのラインの太さ（一番外側）
+    var line_width_param = 3;      //チャートのラインの太さ（一番外側）
     var line_width_center = 1.5;   //チャートの中心線の太さ
 
     var canvas = document.getElementById('rader-chart');
@@ -43,8 +44,8 @@ function chartbuild() {
          */
         function reset() {
             makechartframe();
-            makecChartFromParams();
             makecenterline();
+            makecChartFromParams();
         }
 
         /**
@@ -116,14 +117,15 @@ function chartbuild() {
             var start_x;
             // 初回パラメータの描画Y座標
             var start_y;
+            // 線の色を設定する
+            context.strokeStyle = params_line_color;
+            //ラインの太さ
+            context.lineWidth = line_width_param;
+            // 描画する位置をリセットする
+            context.beginPath();
 
             // パラメータの数だけ繰り返す
             for (var i = 0; i < param_values.length; i++) {
-                // 線の色を設定する
-                context.strokeStyle = params_line_color;
-
-                // 描画する位置をリセットする
-                context.beginPath();
 
                 // パラメータ値の分だけ目盛の位置を伸ばす
                 nth_scale_length = chart_radius / scale_num * param_values[i];
@@ -133,9 +135,9 @@ function chartbuild() {
                 // ラジアン(弧度)を求める ※Math.PI = π
                 rad = angle * Math.PI / 180;
 
-                // 1目盛目のX座標を求める
+                // パラメータ値に応じた目盛のX座標を求める
                 x = getXposiOnCircle(center_x, rad, nth_scale_length);
-                // 1目盛目のY座標を求める
+                // パラメータ値に応じた目盛のY座標を求める
                 y = getYposiOnCircle(center_y, rad, nth_scale_length);
 
                 // 初回の繰り返しのみ描画開始位置を初期化する
@@ -148,8 +150,12 @@ function chartbuild() {
                 } else {
                     // 指定位置まで線を引く
                     context.lineTo(x, y);
+                    console.log("lineTo x : " + x + " y : " + y);
+                    // 今まで指定した線を描画する
+                    // ※stroke = 指定した輪郭を描画, fill = 指定した内部エリアを塗りつぶす
+                    context.stroke();
                 }
-                console.log("i : " + i + " x : " + x + " y : " + y + " rad : " + rad);
+                console.log("i : " + i + " x : " + x + " y : " + y + " rad : " + rad + "nth_scale_length : " + nth_scale_length);
             }
             // 描画開始位置まで線を引く
             context.lineTo(start_x, start_y);

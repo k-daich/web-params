@@ -5,12 +5,12 @@
     <link rel="icon" type="image/png" href="../img/page.png">
     <meta name="viewport" content="width=320">
     <!-- ↓テスト用：キャッシュ無効化↓ -->
-    <meta http-equiv="Pragma" content="no-cache">
+    <!-- <meta http-equiv="Pragma" content="no-cache"> -->
     <!-- ↑テスト用：キャッシュ無効化↑ -->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="stylesheet" href="../css/00_params.css?query=1">
     <link rel="stylesheet" href="../css/99_reset.css">
-    <script src="../js/rader-chart/main.js?query=3"></script>
+    <link rel="stylesheet" href="../css/00_params.css">
+    <script src="../js/rader-chart/drawChart.js"></script>
 </head>
 
 <body>
@@ -32,13 +32,13 @@
                 <canvas id="rader-chart" height="200px" width="200px"></canvas>
             </div>
             <div class="description-box">
-                <ul id="param-values" data-chr-pwr-real="2" data-chr-pwr-ideal="3" data-cntrl-difficult="5" data-advntage-high-rank-chr="4" data-hame="1" data-stability="6">
-                    <li>キャラパワー(実戦値)</li>
-                    <li>キャラパワー(理論値)</li>
-                    <li>操作難易度</li>
-                    <li>上位キャラとの相性</li>
-                    <li>分からん殺せ度</li>
-                    <li>安定性</li>
+                <ul id="param-values">
+                    <li class="param-input-label">キャラパワー(実戦値)<input class="param-input" data-chr-pwr-real="2" placeholder="set from js" type="number"></li>
+                    <li class="param-input-label">キャラパワー(理論値)<input class="param-input" data-chr-pwr-ideal="3" placeholder="set from js" type="number"></li>
+                    <li class="param-input-label">操作難易度<input class="param-input" data-cntrl-difficult="1" placeholder="set from js" type="number"></li>
+                    <li class="param-input-label">上位キャラとの相性<input class="param-input" data-advntage-high-rank-chr="5" placeholder="set from js" type="number"></li>
+                    <li class="param-input-label">分からん殺せ度<input class="param-input" data-hame="4" placeholder="set from js" type="number"></li>
+                    <li class="param-input-label">安定性<input class="param-input" data-stability="0" placeholder="set from js" type="number"></li>
                 </ul>
             </div>
 

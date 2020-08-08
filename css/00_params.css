@@ -64,3 +64,13 @@ footer {
     float : right;
     margin : 0 0 5px 10px;
 }
+
+.param-input-label {
+    width : 150px;
+    height : 1.5rem;
+    vertical-align: middle;
+}
+.param-input {
+    width : 15px;
+    float : right;
+}
