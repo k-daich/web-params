@@ -10,7 +10,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="../css/99_reset.css">
     <link rel="stylesheet" href="../css/00_params.css">
-    <script src="../js/rader-chart/drawChart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+        <script src="../js/rader-chart/setParam.js"></script>
+        <script src="../js/rader-chart/drawChart.js"></script>
 </head>
 
 <body>
@@ -33,12 +36,18 @@
             </div>
             <div class="description-box">
                 <ul id="param-values">
-                    <li class="param-input-label">キャラパワー(実戦値)<input class="param-input" data-chr-pwr-real="2" placeholder="set from js" type="number"></li>
-                    <li class="param-input-label">キャラパワー(理論値)<input class="param-input" data-chr-pwr-ideal="3" placeholder="set from js" type="number"></li>
-                    <li class="param-input-label">操作難易度<input class="param-input" data-cntrl-difficult="1" placeholder="set from js" type="number"></li>
-                    <li class="param-input-label">上位キャラとの相性<input class="param-input" data-advntage-high-rank-chr="5" placeholder="set from js" type="number"></li>
-                    <li class="param-input-label">分からん殺せ度<input class="param-input" data-hame="4" placeholder="set from js" type="number"></li>
-                    <li class="param-input-label">安定性<input class="param-input" data-stability="0" placeholder="set from js" type="number"></li>
+                    <li class="param-input-label">キャラパワー(実戦値)E<input class="param-input" data-param-value="2"
+                            placeholder="set from js" type="number"></li>
+                    <li class="param-input-label">キャラパワー(理論値)<input class="param-input" data-param-value="3"
+                            placeholder="set from js" type="number"></li>
+                    <li class="param-input-label">操作難易度<input class="param-input" data-param-value="1"
+                            placeholder="set from js" type="number"></li>
+                    <li class="param-input-label">上位キャラとの相性<input class="param-input" data-param-value="5"
+                            placeholder="set from js" type="number"></li>
+                    <li class="param-input-label">分からん殺せ度<input class="param-input" data-param-value="4"
+                            placeholder="set from js" type="number"></li>
+                    <li class="param-input-label">安定性<input class="param-input" data-param-value="0"
+                            placeholder="set from js" type="number"></li>
                 </ul>
             </div>
 

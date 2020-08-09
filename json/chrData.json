@@ -1,0 +1,42 @@
+{
+    "Ryu": [
+        {
+            "chrPwrReal": 2,
+            "chrPwrIdeal": 2,
+            "cntrlDifficult": 3,
+            "advntageHighRankChr": 1,
+            "hame": 1,
+            "stability": 4
+        }
+    ],
+    "Ken": [
+        {
+            "chrPwrReal": 3,
+            "chrPwrIdeal": 2,
+            "cntrlDifficult": 3,
+            "advntageHighRankChr": 2,
+            "hame": 3,
+            "stability": 2
+        }
+    ],
+    "Sagat": [
+        {
+            "chrPwrReal": 3,
+            "chrPwrIdeal": 3,
+            "cntrlDifficult": 4,
+            "advntageHighRankChr": 2,
+            "hame": 1,
+            "stability": 3
+        }
+    ],
+    "Chunli": [
+        {
+            "chrPwrReal": 3,
+            "chrPwrIdeal": 4,
+            "cntrlDifficult": 5,
+            "advntageHighRankChr": 3,
+            "hame": 2,
+            "stability": 3
+        }
+    ]
+}

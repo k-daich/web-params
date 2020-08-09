@@ -10,14 +10,14 @@ function chartbuild() {
     //チャートの基本変数定義
     var center_x = 100;          //中心x座標
     var center_y = 100;          //中心y座標
-    var paramValuesEle = document.getElementById("param-values");
+    var paramValuesEle = $(".param-input");
     var param_values = new Array(
-        paramValuesEle.dataset["chrPwrReal"],
-        paramValuesEle.dataset["chrPwrIdeal"],
-        paramValuesEle.dataset["cntrlDifficult"],
-        paramValuesEle.dataset["advntageHighRankChr"],
-        paramValuesEle.dataset["hame"],
-        paramValuesEle.dataset["stability"]
+        paramValuesEle[0].dataset["paramValue"],
+        paramValuesEle[1].dataset["paramValue"],
+        paramValuesEle[2].dataset["paramValue"],
+        paramValuesEle[3].dataset["paramValue"],
+        paramValuesEle[4].dataset["paramValue"],
+        paramValuesEle[5].dataset["paramValue"]
     );
     var vertex_num = param_values.length;              //頂点の数
     var chart_radius = 100;              //大きさ（外接円の半径）
